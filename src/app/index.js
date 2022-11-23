@@ -5,12 +5,17 @@ const app = new Koa()
 const { koaBody } = require('koa-body')
 app.use(koaBody())
 
-// 导入koa-json-error中间件，然后注册该中间件
-const error = require('koa-json-error')
-app.use(error())
-
 // 导入路由
 const userRoute = require('../router/user.route')
 app.use(userRoute.routes()).use(userRoute.allowedMethods())
+
+const goodsRoute = require('../router/user.route')
+app.use(goodsRoute.routes()).use(goodsRoute.allowedMethods())
+
+// 导入koa-json-error中间件，然后注册该中间件
+// const error = require('koa-json-error')
+// app.use(error())
+const errHandle = require('./errHandle')
+app.on('error', errHandle)
 
 module.exports = app
