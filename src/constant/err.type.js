@@ -28,5 +28,10 @@ module.exports = {
     code: '10006',
     message: '密码不匹配',
     result: ''
+  },
+  fileUploadError: {
+    code: '10201',
+    message: '商品图片上传失败',
+    result: ''
   }
 }
